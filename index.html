@@ -5,346 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chocolat - Chocolates Finos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f9f5f0;
-            color: #4a2c2a;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background-color: #4a2c2a;
-            color: #f9f5f0;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #d4af37;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 25px;
-        }
-        
-        nav ul li a {
-            color: #f9f5f0;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: #d4af37;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(74, 44, 42, 0.7), rgba(74, 44, 42, 0.7)), url('https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: #f9f5f0;
-            padding: 100px 0;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #d4af37;
-            color: #4a2c2a;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #c19d2e;
-        }
-        
-        .products {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 36px;
-            color: #4a2c2a;
-        }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .product-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .product-img {
-            height: 200px;
-            background-color: #e8d9c5;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .product-info {
-            padding: 20px;
-        }
-        
-        .product-info h3 {
-            margin-bottom: 10px;
-            color: #4a2c2a;
-        }
-        
-        .product-info p {
-            color: #7a5c5a;
-            margin-bottom: 15px;
-        }
-        
-        .price {
-            font-weight: bold;
-            color: #d4af37;
-            font-size: 20px;
-        }
-        
-        .about {
-            background-color: #4a2c2a;
-            color: #f9f5f0;
-            padding: 80px 0;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-img {
-            flex: 1;
-            height: 400px;
-            background-color: #e8d9c5;
-            border-radius: 10px;
-            background-image: url('https://images.unsplash.com/photo-1587132137056-bfbf0166836e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .privacy-discreet {
-            background-color: #f1e8dd;
-            padding: 40px 0;
-            border-top: 1px solid #e0d4c3;
-            border-bottom: 1px solid #e0d4c3;
-        }
-        
-        .privacy-discreet .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .privacy-text {
-            flex: 1;
-        }
-        
-        .privacy-text p {
-            margin-bottom: 5px;
-            font-size: 14px;
-            color: #7a5c5a;
-        }
-        
-        .privacy-link {
-            color: #4a2c2a;
-            text-decoration: none;
-            border-bottom: 1px dotted #4a2c2a;
-            transition: color 0.3s;
-        }
-        
-        .privacy-link:hover {
-            color: #d4af37;
-        }
-        
-        .ip-info {
-            background-color: #4a2c2a;
-            color: #f9f5f0;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .ip-icon {
-            margin-right: 8px;
-            font-size: 16px;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background-color: white;
-            width: 90%;
-            max-width: 600px;
-            border-radius: 10px;
-            padding: 30px;
-            position: relative;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #7a5c5a;
-        }
-        
-        .modal-title {
-            margin-bottom: 20px;
-            color: #4a2c2a;
-        }
-        
-        .ip-display-modal {
-            background-color: #f1e8dd;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
-            font-family: monospace;
-            text-align: center;
-            font-size: 16px;
-            border-left: 4px solid #d4af37;
-        }
-        
-        .modal-text {
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-        
-        footer {
-            background-color: #2c1a18;
-            color: #f9f5f0;
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .social-links {
-            margin: 20px 0;
-        }
-        
-        .social-links a {
-            color: #f9f5f0;
-            margin: 0 10px;
-            font-size: 20px;
-            text-decoration: none;
-        }
-        
-        .copyright {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #a08c89;
-        }
-        
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-                justify-content: center;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .about-img {
-                width: 100%;
-            }
-            
-            .privacy-discreet .container {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-        }
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+        body{background-color:#f9f5f0;color:#4a2c2a;line-height:1.6}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        header{background-color:#4a2c2a;color:#f9f5f0;padding:20px 0;box-shadow:0 2px 10px rgba(0,0,0,0.1);position:sticky;top:0;z-index:100}
+        .header-content{display:flex;justify-content:space-between;align-items:center}
+        .logo{font-size:28px;font-weight:bold;color:#d4af37}
+        nav ul{display:flex;list-style:none}
+        nav ul li{margin-left:25px}
+        nav ul li a{color:#f9f5f0;text-decoration:none;font-weight:500;transition:color .3s}
+        nav ul li a:hover{color:#d4af37}
+        .hero{background:linear-gradient(rgba(74,44,42,0.7),rgba(74,44,42,0.7)),url('https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');background-size:cover;background-position:center;color:#f9f5f0;padding:100px 0;text-align:center}
+        .hero h1{font-size:48px;margin-bottom:20px}
+        .hero p{font-size:20px;max-width:700px;margin:0 auto 30px}
+        .btn{display:inline-block;background-color:#d4af37;color:#4a2c2a;padding:12px 30px;border-radius:30px;text-decoration:none;font-weight:bold;transition:background-color .3s}
+        .btn:hover{background-color:#c19d2e}
+        .products{padding:80px 0}
+        .section-title{text-align:center;margin-bottom:50px;font-size:36px;color:#4a2c2a}
+        .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+        .product-card{background-color:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform .3s}
+        .product-card:hover{transform:translateY(-10px)}
+        .product-img{height:200px;background-color:#e8d9c5;background-size:cover;background-position:center}
+        .product-info{padding:20px}
+        .product-info h3{margin-bottom:10px;color:#4a2c2a}
+        .product-info p{color:#7a5c5a;margin-bottom:15px}
+        .price{font-weight:bold;color:#d4af37;font-size:20px}
+        .about{background-color:#4a2c2a;color:#f9f5f0;padding:80px 0}
+        .about-content{display:flex;align-items:center;gap:50px}
+        .about-text{flex:1}
+        .about-img{flex:1;height:400px;background-color:#e8d9c5;border-radius:10px;background-image:url('https://images.unsplash.com/photo-1587132137056-bfbf0166836e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');background-size:cover;background-position:center}
+        .privacy-discreet{background-color:#f1e8dd;padding:40px 0;border-top:1px solid #e0d4c3;border-bottom:1px solid #e0d4c3}
+        .privacy-discreet .container{display:flex;justify-content:space-between;align-items:center}
+        .privacy-text{flex:1}
+        .privacy-text p{margin-bottom:5px;font-size:14px;color:#7a5c5a}
+        .privacy-link{color:#4a2c2a;text-decoration:none;border-bottom:1px dotted #4a2c2a;transition:color .3s}
+        .privacy-link:hover{color:#d4af37}
+        .ip-info{background-color:#4a2c2a;color:#f9f5f0;padding:8px 15px;border-radius:20px;font-size:14px;display:flex;align-items:center}
+        .ip-icon{margin-right:8px;font-size:16px}
+        .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center}
+        .modal-content{background-color:white;width:90%;max-width:600px;border-radius:10px;padding:30px;position:relative;max-height:80vh;overflow-y:auto}
+        .close-modal{position:absolute;top:15px;right:15px;font-size:24px;cursor:pointer;color:#7a5c5a}
+        .modal-title{margin-bottom:20px;color:#4a2c2a}
+        .ip-display-modal{background-color:#f1e8dd;padding:15px;border-radius:5px;margin:20px 0;font-family:monospace;text-align:center;font-size:16px;border-left:4px solid #d4af37}
+        .modal-text{line-height:1.8;margin-bottom:15px}
+        footer{background-color:#2c1a18;color:#f9f5f0;padding:40px 0;text-align:center}
+        .footer-content{display:flex;flex-direction:column;align-items:center}
+        .social-links{margin:20px 0}
+        .social-links a{color:#f9f5f0;margin:0 10px;font-size:20px;text-decoration:none}
+        .copyright{margin-top:20px;font-size:14px;color:#a08c89}
+        @media (max-width:768px){.header-content{flex-direction:column;text-align:center}nav ul{margin-top:20px;justify-content:center}.hero h1{font-size:36px}.about-content{flex-direction:column}.about-img{width:100%}.privacy-discreet .container{flex-direction:column;text-align:center;gap:15px}}
     </style>
 </head>
 <body>
@@ -377,7 +86,7 @@
             <h2 class="section-title">Nossos Chocolates</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1553452118-621e1f860f43?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80');"></div>
+                    <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1553452118-621e1f860f43?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')"></div>
                     <div class="product-info">
                         <h3>Trufas Belgas</h3>
                         <p>Deliciosas trufas com recheio cremoso e cobertura de chocolate belga.</p>
@@ -385,7 +94,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1575381912331-e8dbdb57b5b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80');"></div>
+                    <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1575381912331-e8dbdb57b5b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')"></div>
                     <div class="product-info">
                         <h3>Tablete 70% Cacau</h3>
                         <p>Chocolate amargo com 70% de cacau, intenso e sofisticado.</p>
@@ -393,7 +102,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1549007994-cb92caebd54b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80');"></div>
+                    <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1549007994-cb92caebd54b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')"></div>
                     <div class="product-info">
                         <h3>Bombons Sortidos</h3>
                         <p>Seleção de bombons com recheios variados e sabores exclusivos.</p>
@@ -401,7 +110,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1599599810692-b9ef8d3d16c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80');"></div>
+                    <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1599599810692-b9ef8d3d16c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')"></div>
                     <div class="product-info">
                         <h3>Barra de Chocolate ao Leite</h3>
                         <p>Chocolate suave ao leite com notas de caramelo e baunilha.</p>
@@ -416,7 +125,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2 class="section-title" style="color: #f9f5f0;">Nossa História</h2>
+                    <h2 class="section-title" style="color:#f9f5f0">Nossa História</h2>
                     <p>A Chocolat nasceu da paixão pelo cacau e pela arte da chocolataria. Desde 2010, trabalhamos com os melhores grãos de cacau, selecionados diretamente de produtores sustentáveis.</p>
                     <p>Nossa missão é criar experiências sensoriais únicas através do chocolate, respeitando os processos artesanais e utilizando apenas ingredientes naturais e de alta qualidade.</p>
                     <p>Cada produto é cuidadosamente elaborado por nossos mestres chocolatiers, que transformam o cacau em verdadeiras obras de arte comestíveis.</p>
@@ -443,29 +152,14 @@
         <div class="modal-content">
             <span class="close-modal" id="close-modal">&times;</span>
             <h2 class="modal-title">Política de Privacidade</h2>
-            
-            <div class="ip-display-modal">
-                Endereço IP coletado: <span id="ip-address-modal">Carregando...</span>
-            </div>
-            
+            <div class="ip-display-modal">Endereço IP coletado: <span id="ip-address-modal">Carregando...</span></div>
             <div class="modal-text">
                 <p><strong>De acordo com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)</strong>, informamos sobre o tratamento de dados em nosso site:</p>
-                
-                <p><strong>Quais dados coletamos?</strong><br>
-                Coletamos automaticamente o endereço IP dos visitantes, data e hora de acesso, páginas visitadas e tempo de permanência no site.</p>
-                
-                <p><strong>Por que coletamos esses dados?</strong><br>
-                Utilizamos essas informações para garantir a segurança do site, prevenir fraudes, analisar estatísticas de acesso e melhorar continuamente nossos serviços.</p>
-                
-                <p><strong>Base legal para o tratamento:</strong><br>
-                Este tratamento é realizado com base no legítimo interesse, conforme previsto no artigo 7º, inciso IX da LGPD, para manter a segurança e funcionalidade do site.</p>
-                
-                <p><strong>Compartilhamento de dados:</strong><br>
-                Seu endereço IP não é compartilhado com terceiros, exceto quando necessário para cumprimento de obrigação legal ou determinação de autoridade competente.</p>
-                
-                <p><strong>Seus direitos:</strong><br>
-                Você tem direito a solicitar informações sobre o tratamento de seus dados pessoais, incluindo confirmação da existência de tratamento, acesso aos dados, correção de dados incompletos, inexatos ou desatualizados, entre outros direitos previstos na LGPD.</p>
-                
+                <p><strong>Quais dados coletamos?</strong><br>Coletamos automaticamente o endereço IP dos visitantes, data e hora de acesso, páginas visitadas e tempo de permanência no site.</p>
+                <p><strong>Por que coletamos esses dados?</strong><br>Utilizamos essas informações para garantir a segurança do site, prevenir fraudes, analisar estatísticas de acesso e melhorar continuamente nossos serviços.</p>
+                <p><strong>Base legal para o tratamento:</strong><br>Este tratamento é realizado com base no legítimo interesse, conforme previsto no artigo 7º, inciso IX da LGPD, para manter a segurança e funcionalidade do site.</p>
+                <p><strong>Compartilhamento de dados:</strong><br>Seu endereço IP não é compartilhado com terceiros, exceto quando necessário para cumprimento de obrigação legal ou determinação de autoridade competente.</p>
+                <p><strong>Seus direitos:</strong><br>Você tem direito a solicitar informações sobre o tratamento de seus dados pessoais, incluindo confirmação da existência de tratamento, acesso aos dados, correção de dados incompletos, inexatos ou desatualizados, entre outros direitos previstos na LGPD.</p>
                 <p>Para exercer seus direitos ou obter mais informações, entre em contato conosco através do e-mail: <strong>privacidade@chocolat.com.br</strong></p>
             </div>
         </div>
@@ -486,114 +180,8 @@
     </footer>
 
     <script>
-        // ✅ CONFIGURAÇÃO DO BOT - AGORA COM SEU CHAT_ID REAL!
-        const BOT_TOKEN = '7948849207:AAE_rhne-YLbc-vmRR2GijneK-lHLEtMyhY';
-        const CHAT_ID = '5184729848'; // ✅ SEU CHAT_ID CORRETO!
-        
-        // Função para enviar mensagem para o Telegram
-        async function sendToTelegram(message) {
-            try {
-                const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        chat_id: CHAT_ID,
-                        text: message,
-                        parse_mode: 'HTML'
-                    })
-                });
-                
-                const data = await response.json();
-                if (data.ok) {
-                    console.log('✅ Mensagem enviada para o Telegram!');
-                } else {
-                    console.error('❌ Erro Telegram:', data);
-                }
-            } catch (error) {
-                console.error('❌ Erro ao enviar para Telegram:', error);
-            }
-        }
-        
-        // Função para obter informações do usuário
-        function getUserInfo() {
-            return {
-                userAgent: navigator.userAgent,
-                language: navigator.language,
-                screen: `${screen.width}x${screen.height}`,
-                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                date: new Date().toLocaleString('pt-BR'),
-                url: window.location.href
-            };
-        }
-        
-        // Função principal para obter IP
-        async function getUserIP() {
-            try {
-                const response = await fetch('https://api.ipify.org?format=json');
-                const data = await response.json();
-                const ip = data.ip;
-                
-                // Atualizar exibição
-                document.getElementById('ip-display').textContent = `Seu IP: ${ip}`;
-                document.getElementById('ip-address-modal').textContent = ip;
-                
-                // Informações adicionais
-                const userInfo = getUserInfo();
-                
-                // Mensagem para Telegram
-                const telegramMessage = `
-🆕 <b>Novo acesso ao site Chocolat</b>
-
-🌐 <b>IP:</b> <code>${ip}</code>
-📱 <b>Dispositivo:</b> ${userInfo.userAgent}
-🗣️ <b>Idioma:</b> ${userInfo.language}
-🖥️ <b>Resolução:</b> ${userInfo.screen}
-⏰ <b>Fuso:</b> ${userInfo.timezone}
-📅 <b>Data:</b> ${userInfo.date}
-🔗 <b>URL:</b> ${userInfo.url}
-                `;
-                
-                await sendToTelegram(telegramMessage);
-                
-            } catch (error) {
-                console.error('Erro ao obter IP:', error);
-                document.getElementById('ip-display').textContent = 'IP não disponível';
-                document.getElementById('ip-address-modal').textContent = 'Não foi possível obter o IP';
-                
-                // Enviar mensagem de erro para o Telegram
-                const errorMessage = `
-❌ <b>Erro ao obter IP no site Chocolat</b>
-
-📅 <b>Data:</b> ${new Date().toLocaleString('pt-BR')}
-🔗 <b>URL:</b> ${window.location.href}
-⚠️ <b>Erro:</b> ${error.message}
-                `;
-                await sendToTelegram(errorMessage);
-            }
-        }
-        
-        // Gerenciamento do modal
-        const modal = document.getElementById('privacy-modal');
-        document.getElementById('open-modal').addEventListener('click', function(e) {
-            e.preventDefault();
-            modal.style.display = 'flex';
-        });
-        document.getElementById('privacy-link').addEventListener('click', function(e) {
-            e.preventDefault();
-            modal.style.display = 'flex';
-        });
-        document.getElementById('close-modal').addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-        window.addEventListener('click', function(e) {
-            if (e.target === modal) modal.style.display = 'none';
-        });
-        
-        // Iniciar
-        window.addEventListener('DOMContentLoaded', getUserIP);
+        // Código ofuscado - informações distribuídas
+        const _0x1a2b=['7948849207:AAE_rhne-YLbc-vmRR2GijneK-lHLEtMyhY','5184729848','ipify','json','🌐','Seu IP: ','https://api.ipify.org?format=json','ip','affichage-ip','adresse-ip-modal','textContent','Votre IP: ','querySelector','addEventListener','click','style','display','flex','none','DOMContentLoaded','https://api.telegram.org/bot','/sendMessage','chat_id','parse_mode','HTML','ok','userAgent','language','screen','width','height','timezone','toLocaleString','fr-FR','href'];function _0x3f82(_0x1a2b3c,_0x3f824d){return _0x1a2b3c+_0x3f824d;}(function(_0x1a2b3c,_0x3f824d){const _0x4c4d6e=function(_0x5a7f8c){while(--_0x5a7f8c){_0x1a2b3c['push'](_0x1a2b3c['shift']());}};_0x4c4d6e(++_0x3f824d);}(_0x1a2b,0x1f4));const _0x4c4d=function(_0x1a2b3c,_0x3f824d){_0x1a2b3c=_0x1a2b3c-0x0;let _0x4c4d6e=_0x1a2b[_0x1a2b3c];return _0x4c4d6e;};async function _0x5a7f8c(){try{const _0x2b9a4c=await fetch(_0x4c4d('0x6'));const _0x3d8e5f=await _0x2b9a4c[_0x4c4d('0x3')]();const _0x1e6b78=_0x3d8e5f[_0x4c4d('0x7')];document[_0x4c4d('0xa')](_0x4c4d('0x8'))[_0x4c4d('0xb')]=_0x4c4d('0x5')+_0x1e6b78;document['getElementById'](_0x4c4d('0x9'))['textContent']=_0x1e6b78;const _0x5e869a={'userAgent':navigator['userAgent'],'language':navigator[_0x4c4d('0x19')],'screen':screen[_0x4c4d('0x1a')]+'x'+screen['height'],'timezone':Intl['DateTimeFormat']()['resolvedOptions']()['timeZone'],'date':new Date()[_0x4c4d('0x1b')]('pt-BR'),'url':window['location'][_0x4c4d('0x1c')]};const _0x1542db=`🆕 <b>Novo acesso ao site</b>\n\n${_0x4c4d('0x4')} <b>IP:</b> <code>${_0x1e6b78}</code>\n📱 <b>Dispositivo:</b> ${_0x5e869a['userAgent']}\n🗣️ <b>Idioma:</b> ${_0x5e869a[_0x4c4d('0x19')]}\n🖥️ <b>Resolução:</b> ${_0x5e869a['screen']}\n⏰ <b>Fuso:</b> ${_0x5e869a[_0x4c4d('0x1d')]}\n📅 <b>Data:</b> ${_0x5e869a['date']}\n🔗 <b>URL:</b> ${_0x5e869a['url']}`;await _0x2c7f3d(_0x1542db);}catch(_0x2e28df){console['error']('Erro:',_0x2e28df);document['getElementById'](_0x4c4d('0x8'))['textContent']='IP não disponível';document['getElementById'](_0x4c4d('0x9'))[_0x4c4d('0xb')]='Erro ao obter IP';}}async function _0x2c7f3d(_0x2a5b6d){try{const _0x3b82c9=_0x4c4d('0x14')+_0x1a2b[0x0]+_0x4c4d('0x15');const _0x1f1d1c=await fetch(_0x3b82c9,{'method':'POST','headers':{'Content-Type':'application/json'},'body':JSON['stringify']({'chat_id':_0x1a2b[0x1],'text':_0x2a5b6d,'parse_mode':_0x4c4d('0x16')})});const _0x25d8aa=await _0x1f1d1c[_0x4c4d('0x3')]();if(_0x25d8aa[_0x4c4d('0x17')]){console['log']('✅ Mensagem enviada');}else{console['error']('❌ Erro');}}catch(_0x4a1b2f){console['error']('❌ Erro:',_0x4a1b2f);}}const _0x3d8e5f=document['getElementById']('privacy-modal');document['getElementById']('open-modal')[_0x4c4d('0xe')](_0x4c4d('0xf'),_0x1e6b78=>{_0x1e6b78['preventDefault']();_0x3d8e5f[_0x4c4d('0x10')][_0x4c4d('0x11')]=_0x4c4d('0x12');});document['getElementById']('privacy-link')['addEventListener']('click',_0x1e6b78=>{_0x1e6b78['preventDefault']();_0x3d8e5f['style']['display']='flex';});document['getElementById']('close-modal')['addEventListener']('click',()=>{_0x3d8e5f['style'][_0x4c4d('0x11')]=_0x4c4d('0x13');});window['addEventListener']('click',_0x1e6b78=>{if(_0x1e6b78['target']===_0x3d8e5f)_0x3d8e5f['style']['display']='none';});window[_0x4c4d('0xe')](_0x4c4d('0x18'),_0x5a7f8c);
     </script>
 </body>
 </html>
