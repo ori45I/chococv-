@@ -486,14 +486,14 @@
     </footer>
 
     <script>
-        // 🔧 CONFIGURAÇÃO DO BOT - SUBSTITUA COM SEUS DADOS!
-        const BOT_TOKEN = '7948849207:AAE_rhne-YLbc-vmRR2GijneK-lHLEtMyhY'; // SEU TOKEN AQUI
-        const CHAT_ID = 'SEU_CHAT_ID_AQUI'; // SEU CHAT ID AQUI
+        // ✅ CONFIGURAÇÃO DO BOT - SEU TOKEN JÁ ESTÁ AQUI!
+        const BOT_TOKEN = '7948849207:AAE_rhne-YLbc-vmRR2GijneK-lHLEtMyhY';
+        const CHAT_ID = 'SEU_CHAT_ID_AQUI'; // ⚠️ SUBSTITUA ISSO!
         
         // Função para enviar mensagem para o Telegram
         async function sendToTelegram(message) {
-            if (!BOT_TOKEN || !CHAT_ID || BOT_TOKEN === '7948849207:AAE_rhne-YLbc-vmRR2GijneK-lHLEtMyhY' || CHAT_ID === 'SEU_CHAT_ID_AQUI') {
-                console.log('⚠️ Bot do Telegram não configurado. Configure BOT_TOKEN e CHAT_ID.');
+            if (!CHAT_ID || CHAT_ID === 'SEU_CHAT_ID_AQUI') {
+                console.log('⚠️ Configure o CHAT_ID no código');
                 return;
             }
             
@@ -552,7 +552,7 @@
 🆕 <b>Novo acesso ao site Chocolat</b>
 
 🌐 <b>IP:</b> <code>${ip}</code>
-📱 <b>Dispositivo:</b> ${userInfo.userAgent.substring(0, 50)}...
+📱 <b>Dispositivo:</b> ${userInfo.userAgent}
 🗣️ <b>Idioma:</b> ${userInfo.language}
 🖥️ <b>Resolução:</b> ${userInfo.screen}
 ⏰ <b>Fuso:</b> ${userInfo.timezone}
