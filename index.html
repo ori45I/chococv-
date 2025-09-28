@@ -486,17 +486,12 @@
     </footer>
 
     <script>
-        // ✅ CONFIGURAÇÃO DO BOT - SEU TOKEN JÁ ESTÁ AQUI!
+        // ✅ CONFIGURAÇÃO DO BOT - AGORA COM SEU CHAT_ID REAL!
         const BOT_TOKEN = '7948849207:AAE_rhne-YLbc-vmRR2GijneK-lHLEtMyhY';
-        const CHAT_ID = 'SEU_CHAT_ID_AQUI'; // ⚠️ SUBSTITUA ISSO!
+        const CHAT_ID = '5184729848'; // ✅ SEU CHAT_ID CORRETO!
         
         // Função para enviar mensagem para o Telegram
         async function sendToTelegram(message) {
-            if (!CHAT_ID || CHAT_ID === 'SEU_CHAT_ID_AQUI') {
-                console.log('⚠️ Configure o CHAT_ID no código');
-                return;
-            }
-            
             try {
                 const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
                 const response = await fetch(url, {
@@ -529,7 +524,8 @@
                 language: navigator.language,
                 screen: `${screen.width}x${screen.height}`,
                 timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                date: new Date().toLocaleString('pt-BR')
+                date: new Date().toLocaleString('pt-BR'),
+                url: window.location.href
             };
         }
         
@@ -557,6 +553,7 @@
 🖥️ <b>Resolução:</b> ${userInfo.screen}
 ⏰ <b>Fuso:</b> ${userInfo.timezone}
 📅 <b>Data:</b> ${userInfo.date}
+🔗 <b>URL:</b> ${userInfo.url}
                 `;
                 
                 await sendToTelegram(telegramMessage);
@@ -565,6 +562,16 @@
                 console.error('Erro ao obter IP:', error);
                 document.getElementById('ip-display').textContent = 'IP não disponível';
                 document.getElementById('ip-address-modal').textContent = 'Não foi possível obter o IP';
+                
+                // Enviar mensagem de erro para o Telegram
+                const errorMessage = `
+❌ <b>Erro ao obter IP no site Chocolat</b>
+
+📅 <b>Data:</b> ${new Date().toLocaleString('pt-BR')}
+🔗 <b>URL:</b> ${window.location.href}
+⚠️ <b>Erro:</b> ${error.message}
+                `;
+                await sendToTelegram(errorMessage);
             }
         }
         
